@@ -9,7 +9,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/xmoto/%{name}-%{version}-src.tar.gz
-# Source0-md5:	890a476b54e13bfd4ab21440c6a5a8e2
+# Source0-md5:	f797b29193bfbc9d5699501f43127c7a
 URL:		http://xmoto.sourceforge.net/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
