@@ -1,0 +1,16 @@
+--- xmoto-0.1.5/src/VCommon.h.orig	2005-06-13 14:04:22.000000000 +0200
++++ xmoto-0.1.5/src/VCommon.h	2005-10-07 09:47:39.000000000 +0200
+@@ -37,10 +37,9 @@
+ 
+ #include <GL/gl.h>
+ #include <GL/glu.h>
+-#if defined(WIN32) && defined(_MSC_VER)
+-  #define GL_GLEXT_PROTOTYPES 1
+-  #include "glext.h"
+-#else
++#define GL_GLEXT_PROTOTYPES 1
++#include <GL/glext.h>
++#if !defined(GL_ARRAY_BUFFER_ARB)
+   /* This aren't elegant. It would be nicer to use glext.h, but I can't get
+      it to work :( */
+   #define GL_ARRAY_BUFFER_ARB 0x8892
