@@ -1,0 +1,13 @@
+--- xmoto-0.1.5/Makefile.in.orig	2005-10-03 15:52:03.000000000 +0200
++++ xmoto-0.1.5/Makefile.in	2005-10-07 09:49:05.000000000 +0200
+@@ -76,8 +76,8 @@
+ am__quote = @am__quote@
+ install_sh = @install_sh@
+ INCLUDES = -Isrc
+-CXXFLAGS = -w -O3 -DGAMEDATADIR=\"$(datadir)/@PACKAGE@\"
+-CFLAGS = -w -O3 -DGAMEDATADIR=\"$(datadir)/@PACKAGE@\"
++CXXFLAGS = -w $(OPTFLAGS) -DGAMEDATADIR=\"$(datadir)/@PACKAGE@\"
++CFLAGS = -w $(OPTFLAGS) -DGAMEDATADIR=\"$(datadir)/@PACKAGE@\"
+ SUBDIRS = bin
+ 
+ image_SOURCES = src/image/tim.cpp src/image/tim_io_stdio.cpp \
