@@ -10,6 +10,8 @@ License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/xmoto/%{name}-%{version}-src.tar.gz
 # Source0-md5:	f797b29193bfbc9d5699501f43127c7a
+Patch0:		%{name}-opt.patch
+Patch1:		%{name}-types.patch
 URL:		http://xmoto.sourceforge.net/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
@@ -36,6 +38,8 @@ wynikami, swoimi i innych, w wy¶cigu z czasem.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %configure
