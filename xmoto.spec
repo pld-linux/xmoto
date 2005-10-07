@@ -1,6 +1,4 @@
 #
-# TODO: build with shared ode, lua
-#
 Summary:	Clone of across/elma games
 Summary(pl):	Klon gry across/elma
 Name:		xmoto
@@ -12,10 +10,17 @@ Source0:	http://dl.sourceforge.net/xmoto/%{name}-%{version}-src.tar.gz
 # Source0-md5:	b5d11e0f90ab5ff886c1dc90fa15cb2e
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-types.patch
+Patch2:		%{name}-shared_libs.patch
 URL:		http://xmoto.sourceforge.net/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	libvorbis-devel
+BuildRequires:	lua50-devel
+BuildRequires:	ode-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,10 +45,17 @@ wynikami, swoimi i innych, w wy¶cigu z czasem.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+
 %configure
-%{__make}
+%{__make} \
+	OPTFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
