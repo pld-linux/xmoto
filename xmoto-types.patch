@@ -1,6 +1,6 @@
-diff -ruN xmoto-0.1.7./src/VCommon.h xmoto-0.1.7/src/VCommon.h
---- xmoto-0.1.7./src/VCommon.h	2005-10-27 17:06:43.000000000 +0200
-+++ xmoto-0.1.7/src/VCommon.h	2005-10-27 18:55:43.047838250 +0200
+diff -ruN xmoto-0.1.8/src/VCommon.h xmoto-0.1.8./src/VCommon.h
+--- xmoto-0.1.8/src/VCommon.h	2005-11-07 18:30:09.825464152 +0100
++++ xmoto-0.1.8./src/VCommon.h	2005-11-07 18:28:16.000000000 +0100
 @@ -37,10 +37,9 @@
  
  #include <GL/gl.h>
