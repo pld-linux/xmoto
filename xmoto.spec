@@ -7,6 +7,8 @@ License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/xmoto/%{name}-%{version}-src.tar.gz
 # Source0-md5:	969ee47065deb729f21de5d886523e84
+Source1:	%{name}.png
+Source2:	%{name}.desktop
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-types.patch
 URL:		http://xmoto.sourceforge.net/
@@ -56,9 +58,13 @@ wynikami, swoimi i innych, w wy¶cigu z czasem.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -68,3 +74,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog README
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/xmoto
+%{_pixmapsdir}/*
+%{_desktopdir}/*
