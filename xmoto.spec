@@ -15,6 +15,7 @@ BuildRequires:	SDL-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	curl-devel
 BuildRequires:	libtool
 BuildRequires:	lua50-devel
 BuildRequires:	ode-devel
