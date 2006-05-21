@@ -5,8 +5,7 @@ Version:	0.1.14
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-#Source0:	http://mesh.dl.sourceforge.net/sourceforge/xmoto/%{name}-%{version}-src.tar.gz
-Source0:	http://surfnet.dl.sourceforge.net/sourceforge/xmoto/%{name}-%{version}-src.tar.gz
+Source0:	http://dl.sourceforge.net/xmoto/%{name}-%{version}-src.tar.gz
 # Source0-md5:	f2826bd3cc19daba25a6bdf92b1d6461
 Source1:	%{name}.png
 Source2:	%{name}.desktop
