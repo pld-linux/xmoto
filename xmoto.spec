@@ -10,7 +10,7 @@ Source0:	http://dl.sourceforge.net/xmoto/%{name}-%{version}-src.tar.gz
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 URL:		http://xmoto.sourceforge.net/
-BuildRequires:	OpenGL-devel
+BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	autoconf
