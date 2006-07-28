@@ -1,12 +1,12 @@
 Summary:	Clone of across/elma games
 Summary(pl):	Klon gry across/elma
 Name:		xmoto
-Version:	0.1.16
+Version:	0.2.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/xmoto/%{name}-%{version}-src.tar.gz
-# Source0-md5:	7669840af24aae6d5ae65b4171ba195d
+# Source0-md5:	0404467792034dd221b92303f2750ac7
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 URL:		http://xmoto.sourceforge.net/
@@ -15,12 +15,15 @@ BuildRequires:	SDL-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	bzip2-devel
 BuildRequires:	curl-devel
 BuildRequires:	libtool
 BuildRequires:	lua50-devel
 BuildRequires:	ode-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		no_build_with_as_needed	1
 
 %description
 X-Moto is a challenging 2D motocross platform game, where physics play
