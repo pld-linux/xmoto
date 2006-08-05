@@ -23,7 +23,7 @@ BuildRequires:	ode-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		no_build_with_as_needed	1
+%define		filterout_ld	(-Wl,)?--as-needed
 
 %description
 X-Moto is a challenging 2D motocross platform game, where physics play
