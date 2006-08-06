@@ -1,0 +1,18 @@
+diff -Nur xmoto-0.2.0.orig/configure.in xmoto-0.2.0.libs/configure.in
+--- xmoto-0.2.0.orig/configure.in	2006-07-27 21:25:56.000000000 +0000
++++ xmoto-0.2.0.libs/configure.in	2006-08-06 16:26:44.000000000 +0000
+@@ -8,13 +8,13 @@
+ AC_PROG_CXX
+ AC_PROG_INSTALL
+ 
++LIBS="$LIBS -lSDL -lGL"
+ AC_CHECK_LIB(jpeg, jpeg_CreateCompress, [], [AC_MSG_ERROR(libjpeg required)])
+ AC_CHECK_LIB(png, png_read_image, [], [AC_MSG_ERROR(libpng required)])
+ AC_CHECK_LIB(z, uncompress, [], [AC_MSG_ERROR(zlib required)])
+ AC_CHECK_LIB(bz2, BZ2_bzReadOpen, [], [AC_MSG_ERROR(libbz2 required)])
+ AM_PATH_SDL(1.0.0, [], [AC_MSG_ERROR(SDL required)])
+ AC_CHECK_LIB(SDL_mixer, Mix_OpenAudio, [], [AC_MSG_ERROR(SDL_mixer required)])
+-AX_CHECK_GL()
+ 
+ AC_SEARCH_LIBS(lua_pushboolean,lua lua5.1 lua50, [], [AC_MSG_ERROR(liblua5.1, liblua50, or liblua required)])
+ AC_SEARCH_LIBS(luaopen_math,lualib lualib5.1 lualib50, [], [AC_MSG_ERROR(liblualib5.1, liblualib50, or liblualib required)])
