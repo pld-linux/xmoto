@@ -9,6 +9,7 @@ Source0:	http://dl.sourceforge.net/xmoto/%{name}-%{version}-src.tar.gz
 # Source0-md5:	0404467792034dd221b92303f2750ac7
 Source1:	%{name}.png
 Source2:	%{name}.desktop
+Patch0:		%{name}-libs.patch
 URL:		http://xmoto.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel
@@ -22,8 +23,6 @@ BuildRequires:	lua50-devel
 BuildRequires:	ode-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		filterout_ld	(-Wl,)?--as-needed
 
 %description
 X-Moto is a challenging 2D motocross platform game, where physics play
@@ -45,6 +44,7 @@ wynikami, swoimi i innych, w wy¶cigu z czasem.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -53,8 +53,7 @@ wynikami, swoimi i innych, w wy¶cigu z czasem.
 %{__automake}
 
 %configure
-%{__make} \
-	GL_LIBS="-lGL"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
