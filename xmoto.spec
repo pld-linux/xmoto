@@ -1,12 +1,12 @@
 Summary:	Clone of across/elma games
 Summary(pl):	Klon gry across/elma
 Name:		xmoto
-Version:	0.2.0
-Release:	2
+Version:	0.2.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/xmoto/%{name}-%{version}-src.tar.gz
-# Source0-md5:	0404467792034dd221b92303f2750ac7
+# Source0-md5:	e5acce4c304db1cade31e6cc2d5abfde
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-libs.patch
@@ -18,6 +18,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	curl-devel
+BuildRequires:	gettext-devel
 BuildRequires:	libtool
 BuildRequires:	lua50-devel
 BuildRequires:	ode-devel
@@ -48,11 +49,13 @@ wynikami, swoimi i innych, w wy¶cigu z czasem.
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__gettextize}
+%{__aclocal} -I config
 %{__autoconf}
 %{__automake}
 
-%configure
+%configure \
+	--with-enable-zoom=1
 %{__make}
 
 %install
@@ -65,13 +68,16 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/xmoto
 %{_pixmapsdir}/*
 %{_desktopdir}/*
+%{_mandir}/mang/*
