@@ -68,6 +68,8 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
+mv -f $RPM_BUILD_ROOT%{_mandir}/{mang,man6}
+
 %find_lang %{name}
 
 %clean
@@ -80,4 +82,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/xmoto
 %{_pixmapsdir}/*
 %{_desktopdir}/*
-%{_mandir}/mang/*
+%{_mandir}/man6/*
