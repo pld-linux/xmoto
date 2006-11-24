@@ -20,6 +20,8 @@ BuildRequires:	bzip2-devel
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
 BuildRequires:	libtool
+BuildRequires:	libjpeg-devel
+BuildRequires:	libpng-devel
 BuildRequires:	lua50-devel
 BuildRequires:	ode-devel
 BuildRequires:	pkgconfig
