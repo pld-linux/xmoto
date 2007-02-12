@@ -1,5 +1,5 @@
 Summary:	Clone of across/elma games
-Summary(pl):	Klon gry across/elma
+Summary(pl.UTF-8):   Klon gry across/elma
 Name:		xmoto
 Version:	0.2.4
 Release:	1
@@ -36,14 +36,14 @@ difficult of the challenges.
 First you'll try just to complete the levels, while later you'll
 compete with yourself and others, racing against the clock.
 
-%description -l pl
-X-Moto jest wyzywaj±c± motocrossow± dwuwymiarow± gr± platformow±,
-gdzie fizyka ma w rozgrywce g³ówn± rolê. Panowanie nad motorem musi
-byæ jak najbardziej wy¿y³owane, je¿eli chce siê my¶leæ o ukoñczeniu
-trudniejszych poziomów.
+%description -l pl.UTF-8
+X-Moto jest wyzywajÄ…cÄ… motocrossowÄ… dwuwymiarowÄ… grÄ… platformowÄ…,
+gdzie fizyka ma w rozgrywce gÅ‚Ã³wnÄ… rolÄ™. Panowanie nad motorem musi
+byÄ‡ jak najbardziej wyÅ¼yÅ‚owane, jeÅ¼eli chce siÄ™ myÅ›leÄ‡ o ukoÅ„czeniu
+trudniejszych poziomÃ³w.
 
-Z pocz±tku po prostu zalicza siê poziomy, pó¼niej walczy siê z
-wynikami, swoimi i innych, w wy¶cigu z czasem.
+Z poczÄ…tku po prostu zalicza siÄ™ poziomy, pÃ³Åºniej walczy siÄ™ z
+wynikami, swoimi i innych, w wyÅ›cigu z czasem.
 
 %prep
 %setup -q
