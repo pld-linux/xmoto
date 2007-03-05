@@ -1,17 +1,23 @@
-diff -ruN xmoto-0.2.1./configure.in xmoto-0.2.1/configure.in
---- xmoto-0.2.1./configure.in	2006-09-16 01:36:57.000000000 +0200
-+++ xmoto-0.2.1/configure.in	2006-09-16 01:39:47.721019192 +0200
-@@ -15,12 +15,12 @@
+diff -burN xmoto-0.2.6.orig/configure.in xmoto-0.2.6/configure.in
+--- xmoto-0.2.6.orig/configure.in	2007-03-03 16:00:57.000000000 +0100
++++ xmoto-0.2.6/configure.in	2007-03-04 23:55:45.000000000 +0100
+@@ -15,6 +15,7 @@
  dnl libz before png!
  AC_CHECK_LIB(z, uncompress, [], [AC_MSG_ERROR(zlib required)])
  
 +LIBS="$LIBS -lSDL -lGL"
  AC_CHECK_LIB(jpeg, jpeg_CreateCompress, [], [AC_MSG_ERROR(libjpeg required)])
  AC_CHECK_LIB(png, png_read_image, [], [AC_MSG_ERROR(libpng required)])
- AC_CHECK_LIB(bz2, BZ2_bzReadOpen, [], [AC_MSG_ERROR(libbz2 required)])
- AM_PATH_SDL(1.0.0, [], [AC_MSG_ERROR(SDL required)])
- AC_SDL_CHECK_LIB(SDL_mixer, Mix_OpenAudio, [], [AC_MSG_ERROR(SDL_mixer required)])
--AX_CHECK_GL()
  
- AC_SEARCH_LIBS(lua_pushboolean,lua lua5.1 lua50, [], [AC_MSG_ERROR(liblua5.1, liblua50, or liblua required)])
- AC_SEARCH_LIBS(luaopen_math,lualib lualib5.1 lualib50, [], [AC_MSG_ERROR(liblualib5.1, liblualib50, or liblualib required)])
+@@ -42,11 +43,6 @@
+ )
+ AC_SUBST([USE_OPENGL])
+ 
+-if test "$USE_OPENGL" = "1"
+-then
+-  AX_CHECK_GL()
+-fi
+-
+ dnl Put SDL_gfx
+ AC_ARG_WITH([renderer-sdlGfx],
+   [AS_HELP_STRING([--with-renderer-sdlGfx=0|1],
