@@ -1,0 +1,143 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH XMOTO 6 2006-08-08
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+
+.SH NAME
+XMOTO \- 2D motocross platform game
+
+.SH SYNOPSIS
+.B xmoto
+.RI [ options ]
+
+.SH DESCRIPTION
+.B xmoto
+is a challenging 2D motocross platform game, where physics play an all important role in the gameplay. You need to control your bike to its limit, if you want to have a chance finishing the more difficult of the challenges.
+
+.SH GAMEPLAY
+A number of strawberries are typically spread around each level, which generally consists of a complicated landscape seen from the side - i.e. much like islands in the sky. You need to collect all these berries to complete the level - when you've got the last one, you should find the sunflower which will complete the level when you touch it. Variations to this basic gameplay may be found around some of the levels.
+
+Your motocross bike is likewise seen from the side, and you control its throttle, braking, and simple changes to the attitude by jerking the bike back and forth. Additionally you can change the direction of your driving, by rotating on the spot.
+
+You control your bike using the keyboard. The following keys are the default values, but may be changed from inside the game :
+.TP
+.B Up\ arrow
+Accelerates
+.TP
+.B Down\ arrow
+Brakes
+.TP
+.B Left\ arrow
+Rotates it counter-clockwise
+.TP
+.B Right\ arrow
+Rotates it clockwise
+.TP
+.B Space
+Turns around and drives in the other direction
+
+.PP
+Additionally, some other keys can be pressed while playing:
+.TP
+.B Escape
+Pauses the game, and opens the in-game menu
+.TP
+.B F12
+Takes a screenshot and places it in the game directory
+
+.SH OPTIONS
+.TP
+.B \-h
+Show summary of options.
+.TP
+.BI \-res\  width x heigt
+Forces a specific display resolution.
+.TP
+.BI \-bpp\  bits
+Forces a specific number of bits per pixel.
+.TP
+.B \-fs
+Forces the game to run in fullscreen mode.
+.TP
+.B \-win
+Forces the game to run in windowed mode.
+.TP
+.B \-nogfx
+Starts the game without graphics. Only meaningful when combined with the
+.TP
+.B \-replay
+argument, in which case it will play the replay in the background and only print out the player's name and finish time.
+.TP
+.B \-v
+Be verbose and output debug messages on the standard output.
+.TP
+.BI \-level\  id
+Start playing the specified level right away. If
+.I id
+is a number the corresponding built-in level is selected, otherwise it should be the identifier of an external level (not the file name).
+.TP
+.B \-debug
+Enables debug mode.
+.TP
+.BI \-profile\  name
+Use the player profile specified by
+.IR name .
+.TP
+.B \-listlevels
+Outputs a list of available levels and then quits.
+.TP
+.B \-fps
+Enables framerate display.
+.TP
+.B \-nowww
+Don't allow xmoto to connect on the web even if the option is set on.
+.TP
+.B \-testTheme
+Enables testThemeMode. This will display the collision forms over the sprites of the theme to check if the theme is nicely designed.
+.TP
+.B \-ugly
+Enables "ugly" mode. This will increase the game's framerate significantly, but it will also make the graphics look very ugly - most things inside the game will be drawn with lines, the rider for instance being a simple stick figure. This option is very useful if your system doesn't have a proper OpenGL-capable video card (like for instance if you have a laptop with on-board video card). If you have the right amount of CPU power, it should even be possible to run X-Moto in OpenGL software emulation mode (MesaGL on linux, Windows' OpenGL fallback driver, etc).
+
+.SH CONFIGURATION
+The important configuration options can be modified from inside the game by pressing the Options button in the main menu. Most of it should be pretty self explanatory, so I won't drag you through it here.
+
+Options are saved in a file called
+.IR config.dat .
+On Windows the file is saved in the game directory, while on Linux it is saved in
+.IR ~/.xmoto .
+It is a plain XML text file, so it should be straight-forward to modify in any text editor. In addition to the options accessible from inside the game, there's a couple more, which is not interesting enough to get included in the menus:
+.TP
+.B DefaultProfile
+Specifies which player profile should be active when the game starts.
+.TP
+.B ScreenshotFormat
+The format in which screenshots should be saved in. Can be either
+.B jpg
+or
+.B png.
+.TP
+.B NotifyAtInit
+If true, a message about the game release is shown at startup. Automatically set to false afterwards.
+
+.SH SEE ALSO
+.BR xmoto\-edit (6).
+
+.SH AUTHOR
+xmoto was written by Rasmus Neckelmann <neckelmann@gmail.com>.
+.PP
+This manual page was written by Samuel Mimram <smimram@debian.org>,
+for the Debian project (but may be used by others). Updated by Amand 
+Tihon <amand.tihon@alrj.org>
