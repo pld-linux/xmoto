@@ -21,12 +21,13 @@ BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
-BuildRequires:	libtool
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
+BuildRequires:	libtool
 BuildRequires:	lua50-devel
 BuildRequires:	ode-devel
 BuildRequires:	pkgconfig
+BuildRequires:	sqlite3-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
