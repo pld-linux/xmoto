@@ -40,7 +40,7 @@ First you'll try just to complete the levels, while later you'll
 compete with yourself and others, racing against the clock.
 
 %description -l pl.UTF-8
-X-6cMoto jest wyzywającą motocrossową dwuwymiarową grą platformową,
+X-Moto jest wyzywającą motocrossową dwuwymiarową grą platformową,
 gdzie fizyka ma w rozgrywce główną rolę. Panowanie nad motorem musi
 być jak najbardziej wyżyłowane, jeżeli chce się myśleć o ukończeniu
 trudniejszych poziomów.
@@ -55,7 +55,7 @@ cat %{SOURCE3} | gzip -9 > xmoto.6.gz
 
 %build
 %{__libtoolize}
-6c%{__gettextize}
+%{__gettextize}
 %{__aclocal} -I config
 %{__autoconf}
 %{__automake}
