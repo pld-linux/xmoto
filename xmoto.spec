@@ -2,7 +2,7 @@ Summary:	Clone of across/elma games
 Summary(pl.UTF-8):	Klon gry across/elma
 Name:		xmoto
 Version:	0.3.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://download.tuxfamily.org/xmoto/xmoto/%{version}/%{name}-%{version}-src.tar.gz
@@ -40,7 +40,7 @@ First you'll try just to complete the levels, while later you'll
 compete with yourself and others, racing against the clock.
 
 %description -l pl.UTF-8
-X-Moto jest wyzywającą motocrossową dwuwymiarową grą platformową,
+X-6cMoto jest wyzywającą motocrossową dwuwymiarową grą platformową,
 gdzie fizyka ma w rozgrywce główną rolę. Panowanie nad motorem musi
 być jak najbardziej wyżyłowane, jeżeli chce się myśleć o ukończeniu
 trudniejszych poziomów.
@@ -55,7 +55,7 @@ cat %{SOURCE3} | gzip -9 > xmoto.6.gz
 
 %build
 %{__libtoolize}
-%{__gettextize}
+6c%{__gettextize}
 %{__aclocal} -I config
 %{__autoconf}
 %{__automake}
@@ -75,6 +75,21 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
 mv -f $RPM_BUILD_ROOT%{_mandir}/{mang,man6}
+
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/ca{_ES,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/cs{_CZ,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/de{_DE,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/es{_ES,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/fi{_FI,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/fr{_FR,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/it{_IT,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nb{_NO,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nn{_NO,}
+rm -fr $RPM_BUILD_ROOT%{_datadir}/locale/no*
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/pl{_PL,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/ru{_RU,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sk{_SK,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sv{_SE,}
 
 %find_lang %{name}
 
