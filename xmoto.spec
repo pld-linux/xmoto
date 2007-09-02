@@ -1,12 +1,12 @@
 Summary:	Clone of across/elma games
 Summary(pl.UTF-8):	Klon gry across/elma
 Name:		xmoto
-Version:	0.3.2
-Release:	2
+Version:	0.3.3
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://download.tuxfamily.org/xmoto/xmoto/%{version}/%{name}-%{version}-src.tar.gz
-# Source0-md5:	09f40a4cc189033ce0753eadb0a2213e
+# Source0-md5:	f1f7726a8856f9c9efa2ae8e3192bb7f
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Source3:	%{name}.6
@@ -51,7 +51,7 @@ wynikami, swoimi i innych, w wyścigu z czasem.
 %prep
 %setup -q
 cat %{SOURCE3} | gzip -9 > xmoto.6.gz
-%patch0 -p1
+#%patch0 -p1
 
 # fix lv translation
 sed -i -e 's/lv_LV/lv/g' configure.in
