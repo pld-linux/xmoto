@@ -54,8 +54,10 @@ cat %{SOURCE3} | gzip -9 > xmoto.6.gz
 #%patch0 -p1
 
 # fix lv translation
-sed -i -e 's/lv_LV/lv/g' configure.in
+sed -i -e 's/lv_LV/lv/g;s/da_DK/da/g;s/pt_PT/pt/g' configure.in
 mv -f po/lv{_LV,}.po
+mv -f po/da{_DK,}.po
+mv -f po/pt{_PT,}.po
 
 %build
 %{__libtoolize}
