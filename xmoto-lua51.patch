@@ -1,0 +1,35 @@
+Original lua-detection-code is broken:
+* xmoto builds with lua50
+* xmoto doesn't build with lua51 (configure: error: liblua5.1)
+* xmoto doesn't build with installed both lua50 and lua51 (undefined reference to `luaL_newstate')
+--- xmoto-0.3.4/configure.in.orig	2007-12-25 09:59:05.569939403 +0100
++++ xmoto-0.3.4/configure.in	2007-12-25 10:02:46.536229609 +0100
+@@ -77,23 +77,11 @@
+ fi
+ AM_CONDITIONAL([USE_SDLGFX], test "$USE_SDLGFX" = "1")
+ 
+-AC_SEARCH_LIBS(lua_pushboolean,lua lua5.1 lua50, [], [AC_MSG_ERROR(liblua5.1, liblua50, or liblua required)])
+-AC_SEARCH_LIBS(luaopen_math,lualib lualib5.1 lualib50, [], [AC_MSG_ERROR(liblualib5.1, liblualib50, or liblualib required)])
+-
+-dnl ***** Check lua headers, as they are prone to be located random places on random systems! *****
+-dnl The following three lines where suggested by Eric Piel, but they don't seem to work on my system
+-dnl AC_CHECK_HEADERS(lua.h lua/lua.h lua50/lua.h, [break], [AC_MSG_ERROR(Could not find lua.h)])
+-dnl AC_CHECK_HEADERS(lauxlib.h lua/lauxlib.h lua50/lauxlib.h, [break], [AC_MSG_ERROR(Could not find luaxlib.h)])
+-dnl AC_CHECK_HEADERS(lualib.h lua/lualib.h lua50/lualib.h, [break], [AC_MSG_ERROR(Could not find lualib.h)])
+-
+-dnl search in this order to put in USE_LUA_VERSION the recenter version
+-dnl in .h inclusion, order is reversed to include the recenter version
+-USE_LUA_VERSION="unknown"
+-AC_CHECK_HEADER(lua.h,        AC_DEFINE(HAVE_LUA_H)       [USE_LUA_VERSION="unknown"])
+-AC_CHECK_HEADER(lua/lua.h,    AC_DEFINE(HAVE_LUA_LUA_H)   [USE_LUA_VERSION="unknown"])
+-AC_CHECK_HEADER(lua50/lua.h,  AC_DEFINE(HAVE_LUA50_LUA_H) [USE_LUA_VERSION="5.0"])
+-AC_CHECK_HEADER(lua51/lua.h,  AC_DEFINE(HAVE_LUA51_LUA_H) [USE_LUA_VERSION="5.1"])
+-AC_CHECK_HEADER(lua5.1/lua.h, AC_DEFINE(HAVE_LUA5_1_LUA_H)[USE_LUA_VERSION="5.1"])
++PKG_CHECK_MODULES(LUA, lua51)
++CXXFLAGS="$CXXFLAGS $LUA_CFLAGS"
++LIBS="$LIBS $LUA_LIBS"
++USE_LUA_VERSION=5.1
++AC_DEFINE(HAVE_LUA_H)
+ 
+ AC_LANG_PUSH([C++])
+ 
