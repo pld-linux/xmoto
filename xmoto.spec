@@ -28,6 +28,7 @@ BuildRequires:	lua51-devel
 BuildRequires:	ode-devel
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
+BuildRequires:	subversion
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
