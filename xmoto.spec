@@ -28,7 +28,6 @@ BuildRequires:	lua51-devel
 BuildRequires:	ode-devel
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
-BuildRequires:	subversion
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,6 +58,9 @@ sed -i -e 's/lv_LV/lv/g;s/da_DK/da/g;s/pt_PT/pt/g' configure.in
 mv -f po/lv{_LV,}.po
 mv -f po/da{_DK,}.po
 mv -f po/pt{_PT,}.po
+
+# don't run svnversion
+touch src/svnVersion
 
 %build
 %{__libtoolize}
