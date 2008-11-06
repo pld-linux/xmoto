@@ -1,0 +1,11 @@
+diff -up xmoto-0.4.2/src/xmscene/BikePlayer.cpp~ xmoto-0.4.2/src/xmscene/BikePlayer.cpp
+--- xmoto-0.4.2/src/xmscene/BikePlayer.cpp~	2008-10-15 14:13:13.000000000 +0200
++++ xmoto-0.4.2/src/xmscene/BikePlayer.cpp	2008-10-15 14:35:10.000000000 +0200
+@@ -146,6 +146,7 @@ void PlayerBiker::initPhysics(Vector2f i
+   m_bFirstPhysicsUpdate = true;
+ 
+   /* Setup ODE */
++  dInitODE();
+   m_WorldID = dWorldCreate();
+   dWorldSetERP(m_WorldID,PHYS_WORLD_ERP);
+   dWorldSetCFM(m_WorldID,PHYS_WORLD_CFM);
