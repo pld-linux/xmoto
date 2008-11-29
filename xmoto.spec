@@ -10,7 +10,6 @@ Source0:	http://download.tuxfamily.org/xmoto/xmoto/%{version}/%{name}-%{version}
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-lua51.patch
-Patch1:		%{name}-initode.patch
 URL:		http://xmoto.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel
@@ -26,7 +25,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtool
 BuildRequires:	lua51-devel
-BuildRequires:	ode-devel
+BuildRequires:	ode-devel >= 1:0.10.1
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -52,7 +51,6 @@ wynikami, swoimi i innych, w wyścigu z czasem.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 # fix lv translation
 sed -i -e 's/lv_LV/lv/g;s/da_DK/da/g;s/pt_PT/pt/g' configure.in
