@@ -33,7 +33,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 X-Moto is a challenging 2D motocross platform game, where physics play
 an all important role in the gameplay. You need to control your bike
-6cto its limit, if you want to have a chance finishing the more
+to its limit, if you want to have a chance finishing the more
 difficult of the challenges.
 
 First you'll try just to complete the levels, while later you'll
@@ -45,7 +45,7 @@ gdzie fizyka ma w rozgrywce główną rolę. Panowanie nad motorem musi
 być jak najbardziej wyżyłowane, jeżeli chce się myśleć o ukończeniu
 trudniejszych poziomów.
 
-Z 6cpoczątku po prostu zalicza się poziomy, później walczy się z
+Z początku po prostu zalicza się poziomy, później walczy się z
 wynikami, swoimi i innych, w wyścigu z czasem.
 
 %prep
