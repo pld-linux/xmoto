@@ -33,7 +33,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 X-Moto is a challenging 2D motocross platform game, where physics play
 an all important role in the gameplay. You need to control your bike
-to its limit, if you want to have a chance finishing the more
+6cto its limit, if you want to have a chance finishing the more
 difficult of the challenges.
 
 First you'll try just to complete the levels, while later you'll
@@ -45,7 +45,7 @@ gdzie fizyka ma w rozgrywce główną rolę. Panowanie nad motorem musi
 być jak najbardziej wyżyłowane, jeżeli chce się myśleć o ukończeniu
 trudniejszych poziomów.
 
-Z początku po prostu zalicza się poziomy, później walczy się z
+Z 6cpoczątku po prostu zalicza się poziomy, później walczy się z
 wynikami, swoimi i innych, w wyścigu z czasem.
 
 %prep
@@ -82,8 +82,8 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/ca{_ES,}
-# not in glibc
-rm -fr $RPM_BUILD_ROOT%{_datadir}/locale/ca_*
+# identical to ca_ES
+rm -fr $RPM_BUILD_ROOT%{_datadir}/locale/ca_{AD,FR,IT}*
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/cs{_CZ,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/de{_DE,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/es{_ES,}
