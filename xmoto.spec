@@ -2,7 +2,7 @@ Summary:	Clone of across/elma games
 Summary(pl.UTF-8):	Klon gry across/elma
 Name:		xmoto
 Version:	0.5.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://download.tuxfamily.org/xmoto/xmoto/%{version}/%{name}-%{version}-src.tar.gz
@@ -82,13 +82,18 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/ca{_ES,}
+# not in glibc
+rm -fr $RPM_BUILD_ROOT%{_datadir}/locale/ca_*
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/cs{_CZ,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/de{_DE,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/es{_ES,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/fi{_FI,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/fr{_FR,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/hu{_HU,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/it{_IT,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/lt{_LT,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nb{_NO,}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nl{_NL,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nn{_NO,}
 rm -fr $RPM_BUILD_ROOT%{_datadir}/locale/no*
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/pl{_PL,}
