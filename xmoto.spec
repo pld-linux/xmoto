@@ -1,3 +1,6 @@
+#
+# TODO: make ib builds on x86_64
+#
 Summary:	Clone of across/elma games
 Summary(pl.UTF-8):	Klon gry across/elma
 Name:		xmoto
