@@ -103,7 +103,6 @@ mv -f $RPM_BUILD_ROOT%{_datadir}/locale/lt{_LT,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nb{_NO,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nl{_NL,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nn{_NO,}
-rm -fr $RPM_BUILD_ROOT%{_datadir}/locale/no*
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/pl{_PL,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/ru{_RU,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sk{_SK,}
