@@ -4,17 +4,16 @@
 Summary:	Clone of across/elma games
 Summary(pl.UTF-8):	Klon gry across/elma
 Name:		xmoto
-Version:	0.5.2
-Release:	4
+Version:	0.5.3
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://download.tuxfamily.org/xmoto/xmoto/%{version}/%{name}-%{version}-src.tar.gz
-# Source0-md5:	1e3678ebceca21d61844efb53c140227
+# Source0-md5:	7505965c1c64c0080023c7ed6d5cfedd
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-lua51.patch
 Patch1:		libpng-1.4.patch
-Patch2:		%{name}-gcc.patch
 URL:		http://xmoto.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel
@@ -29,9 +28,11 @@ BuildRequires:	gettext-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtool
+BuildRequires:	libxdg-basedir-devel
 BuildRequires:	lua51-devel
-BuildRequires:	ode-devel >= 1:0.10.1
+BuildRequires:	ode-devel >= 1:0.11
 BuildRequires:	pkgconfig
+BuildRequires:	sed >= 4.0
 BuildRequires:	sqlite3-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -57,8 +58,6 @@ wynikami, swoimi i innych, w wyścigu z czasem.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p0
-
 # fix lv translation
 %{__sed} -i -e 's/lv_LV/lv/g;s/da_DK/da/g;s/pt_PT/pt/g;s/tr_TR/tr/g' configure.in
 mv -f po/lv{_LV,}.po
