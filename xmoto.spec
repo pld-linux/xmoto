@@ -58,7 +58,7 @@ wynikami, swoimi i innych, w wyścigu z czasem.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-# fix lv translation
+# fix some translations
 %{__sed} -i -e 's/lv_LV/lv/g;s/da_DK/da/g;s/pt_PT/pt/g;s/tr_TR/tr/g' configure.in
 mv -f po/lv{_LV,}.po
 mv -f po/da{_DK,}.po
