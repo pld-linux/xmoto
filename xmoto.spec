@@ -1,15 +1,15 @@
 #
-# TODO: make ib builds on x86_64
+# TODO: make it builds on x86_64
 #
 Summary:	Clone of across/elma games
 Summary(pl.UTF-8):	Klon gry across/elma
 Name:		xmoto
-Version:	0.5.3
+Version:	0.5.4
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://download.tuxfamily.org/xmoto/xmoto/%{version}/%{name}-%{version}-src.tar.gz
-# Source0-md5:	7505965c1c64c0080023c7ed6d5cfedd
+# Source0-md5:	57f7b435c735aa04cf08d4c41b30f244
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-lua51.patch
@@ -90,7 +90,7 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/ca{_ES,}
 # identical to ca_ES
-rm -fr $RPM_BUILD_ROOT%{_datadir}/locale/ca_{AD,FR,IT}*
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ca_{AD,FR,IT}*
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/cs{_CZ,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/de{_DE,}
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/es{_ES,}
