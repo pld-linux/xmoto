@@ -1,0 +1,10 @@
+--- xmoto-0.5.9/src/image/tim_png.cpp~	2011-10-11 22:18:11.000000000 +0200
++++ xmoto-0.5.9/src/image/tim_png.cpp	2012-02-08 13:34:49.001077897 +0100
+@@ -24,6 +24,7 @@
+  */
+ #include <stdio.h>
+ #include <string.h>
++#include <zlib.h>
+ #include "tim.h"
+ #include "png.h"
+ 
