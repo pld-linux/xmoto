@@ -8,3 +8,14 @@
  #include "tim.h"
  #include "png.h"
  
+--- xmoto-0.5.9/src/helpers/System.cpp~	2011-10-11 22:18:14.000000000 +0200
++++ xmoto-0.5.9/src/helpers/System.cpp	2013-11-03 21:31:03.283105603 +0100
+@@ -24,6 +24,8 @@
+ #include "Log.h"
+ #include "VExcept.h"
+ #include <sstream>
++#include <sys/types.h>
++#include <unistd.h>
+ 
+ std::vector<std::string>* System::getDisplayModes(int windowed) {
+     std::vector<std::string>* modes = new std::vector<std::string>;
