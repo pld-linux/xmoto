@@ -1,25 +1,22 @@
 Summary:	Clone of across/elma games
 Summary(pl.UTF-8):	Klon gry across/elma
 Name:		xmoto
-Version:	0.5.9
-Release:	6
+Version:	0.6.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://download.tuxfamily.org/xmoto/xmoto/%{version}/%{name}-%{version}-src.tar.gz
-# Source0-md5:	d8d6b7a405139530650b8a9ae2ea6df3
+Source0:	https://github.com/xmoto/xmoto/archive/%{version}/%{version}.tar.gz
+# Source0-md5:	88725490243e69d5ab5cde349fa5fa3a
 Source1:	%{name}.png
 Source2:	%{name}.desktop
-Patch0:		%{name}-lua51.patch
-Patch1:		%{name}-includes.patch
 URL:		http://xmoto.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	SDL_net-devel
 BuildRequires:	SDL_ttf-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	bzip2-devel
+BuildRequires:	cmake
 BuildRequires:	curl-devel
 BuildRequires:	gettext-tools
 BuildRequires:	libjpeg-devel
@@ -27,7 +24,7 @@ BuildRequires:	libpng-devel
 BuildRequires:	libtool
 BuildRequires:	libxdg-basedir-devel >= 1.1.1-2
 BuildRequires:	lua51-devel
-BuildRequires:	ode-devel >= 1:0.11
+BuildRequires:	ode-devel >= 1:0.16
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildRequires:	sqlite3-devel
@@ -53,58 +50,37 @@ wynikami, swoimi i innych, w wyścigu z czasem.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-
-# fix some translations
-%{__sed} -i -e 's/lv_LV/lv/g;s/da_DK/da/g;s/gl_ES/gl/g;s/pt_PT/pt/g;s/tr_TR/tr/g' configure.in
-mv -f po/lv{_LV,}.po
-mv -f po/da{_DK,}.po
-mv -f po/gl{_ES,}.po
-mv -f po/pt{_PT,}.po
-mv -f po/tr{_TR,}.po
 
 # don't run svnversion
 touch src/svnVersion
 
 %build
-%{__libtoolize}
-%{__gettextize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__automake}
+mkdir build
+cd build
+%cmake .. \
+	-DOpenGL_GL_PREFERENCE=GLVND
 
-%configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
+cd build
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+cd ..
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
+cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/ca{_ES,}
-# identical to ca_ES
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ca_{AD,FR,IT}*
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/cs{_CZ,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/de{_DE,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/es{_ES,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/fi{_FI,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/fr{_FR,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/hu{_HU,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/it{_IT,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/lt{_LT,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nb{_NO,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nl{_NL,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/nn{_NO,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/pl{_PL,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/ru{_RU,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sk{_SK,}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sv{_SE,}
+mv -f $RPM_BUILD_ROOT%{_localedir}/ca{_ES,}
+mv -f $RPM_BUILD_ROOT%{_localedir}/cs{_CZ,}
+mv -f $RPM_BUILD_ROOT%{_localedir}/da{_DK,}
+mv -f $RPM_BUILD_ROOT%{_localedir}/gl{_ES,}
+mv -f $RPM_BUILD_ROOT%{_localedir}/nb{_NO,}
+mv -f $RPM_BUILD_ROOT%{_localedir}/nn{_NO,}
+mv -f $RPM_BUILD_ROOT%{_localedir}/sv{_SE,}
 
 %find_lang %{name}
 
@@ -113,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc ChangeLog README TODO
+%doc ChangeLog README.md
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/xmoto
 %{_pixmapsdir}/*
