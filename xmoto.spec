@@ -1,20 +1,20 @@
 Summary:	Clone of across/elma games
 Summary(pl.UTF-8):	Klon gry across/elma
 Name:		xmoto
-Version:	0.6.1
-Release:	2
+Version:	0.6.3
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	https://github.com/xmoto/xmoto/archive/%{version}/%{version}.tar.gz
-# Source0-md5:	88725490243e69d5ab5cde349fa5fa3a
+Source0:	https://github.com/xmoto/xmoto/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	933c848ce0531675700290ce78b12040
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 URL:		http://xmoto.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
-BuildRequires:	SDL-devel
-BuildRequires:	SDL_mixer-devel
-BuildRequires:	SDL_net-devel
-BuildRequires:	SDL_ttf-devel
+BuildRequires:	SDL2-devel
+BuildRequires:	SDL2_mixer-devel
+BuildRequires:	SDL2_net-devel
+BuildRequires:	SDL2_ttf-devel
 BuildRequires:	bzip2-devel
 BuildRequires:	cmake
 BuildRequires:	curl-devel
